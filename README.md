@@ -13,5 +13,5 @@ python -m venv venv
 ```
 ### Dependencies
 ```
-pip install django djangorestframework djangorestframework-jwt
+pip install django djangorestframework djangorestframework-jwt django-cors-headers
 ```
