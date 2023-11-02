@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users',
+    'rest_framework',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -101,11 +104,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Configure django-rest-framework permissions to accept JSON Web Tokens.
-REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-  ),
-}
+# REST_FRAMEWORK = {
+#   'DEFAULT_AUTHENTICATION_CLASSES': (
+#     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#   ),
+# }
 
 
 # Internationalization
@@ -129,3 +132,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+CORS_ORIGINAL_ALLOW = True
+CORS_ALLOW_CREDENTIALS = True
